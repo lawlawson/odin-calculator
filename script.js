@@ -19,6 +19,8 @@ function divideNumbers(num1, num2) {
 }
 
 function operate(op, num1, num2) {
+  num1 = Number(num1);
+  num2 = Number(num2);
   if (op === '+') {
     return addNumbers(num1, num2);
   } else if (op === '-') {
@@ -32,9 +34,3 @@ function operate(op, num1, num2) {
   }
 }
 
-console.log(operate('+', 3, 5));
-console.log(operate('-', 5, 2));
-console.log(operate('*', 3, 5));
-console.log(operate('/', 3, 3));
-console.log(operate('&', 3, 3));
-console.log(operate('+', '3', '5'));
