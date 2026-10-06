@@ -34,3 +34,11 @@ function operate(op, num1, num2) {
   }
 }
 
+const display = document.querySelector('.display');
+const digitButtons = document.querySelectorAll('.digit');
+
+digitButtons.forEach((button) =>
+  button.addEventListener('click', () => {
+    console.log(button.textContent);
+  }),
+);
