@@ -36,6 +36,7 @@ function operate(op, num1, num2) {
 
 const display = document.querySelector('.display');
 const digitButtons = document.querySelectorAll('.digit');
+const clearButton = document.querySelector('.clear');
 
 digitButtons.forEach((button) =>
   button.addEventListener('click', () => {
@@ -43,3 +44,12 @@ digitButtons.forEach((button) =>
     display.textContent = firstNumber;
   }),
 );
+
+function clearCalculator() {
+  firstNumber = '';
+  secondNumber = '';
+  operator = '';
+  display.textContent = '0';
+}
+
+clearButton.addEventListener('click', clearCalculator);
