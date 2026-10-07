@@ -37,6 +37,7 @@ function operate(op, num1, num2) {
 const display = document.querySelector('.display');
 const digitButtons = document.querySelectorAll('.digit');
 const clearButton = document.querySelector('.clear');
+const operatorButtons = document.querySelectorAll('.operator');
 
 digitButtons.forEach((button) =>
   button.addEventListener('click', () => {
@@ -53,3 +54,14 @@ function clearCalculator() {
 }
 
 clearButton.addEventListener('click', clearCalculator);
+
+operatorButtons.forEach((button) =>
+  button.addEventListener('click', () => {
+    operator = button.dataset.op;
+    if(operator) {
+      
+    } else {
+      
+    }
+  }),
+);
