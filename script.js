@@ -39,6 +39,7 @@ const digitButtons = document.querySelectorAll('.digit');
 
 digitButtons.forEach((button) =>
   button.addEventListener('click', () => {
-    console.log(button.textContent);
+    firstNumber += button.textContent;
+    display.textContent = firstNumber;
   }),
 );
