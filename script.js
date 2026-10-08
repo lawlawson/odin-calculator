@@ -1,3 +1,9 @@
+const display = document.querySelector('.display');
+const digitButtons = document.querySelectorAll('.digit');
+const clearButton = document.querySelector('.clear');
+const operatorButtons = document.querySelectorAll('.operator');
+const equalsButon = document.querySelector('.equals');
+
 let firstNumber = '';
 let operator = '';
 let secondNumber = '';
@@ -34,11 +40,6 @@ function operate(op, num1, num2) {
   }
 }
 
-const display = document.querySelector('.display');
-const digitButtons = document.querySelectorAll('.digit');
-const clearButton = document.querySelector('.clear');
-const operatorButtons = document.querySelectorAll('.operator');
-
 digitButtons.forEach((button) =>
   button.addEventListener('click', () => {
     if (operator) {
@@ -65,3 +66,10 @@ operatorButtons.forEach((button) =>
     operator = button.dataset.op;
   }),
 );
+
+function calculate() {
+  let result = operate(operator, firstNumber, secondNumber);
+  display.textContent = result;
+}
+
+equalsButon.addEventListener('click', calculate);
