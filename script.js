@@ -41,8 +41,13 @@ const operatorButtons = document.querySelectorAll('.operator');
 
 digitButtons.forEach((button) =>
   button.addEventListener('click', () => {
-    firstNumber += button.textContent;
-    display.textContent = firstNumber;
+    if (operator) {
+      secondNumber += button.textContent;
+      display.textContent = secondNumber;
+    } else {
+      firstNumber += button.textContent;
+      display.textContent = firstNumber;
+    }
   }),
 );
 
@@ -58,10 +63,5 @@ clearButton.addEventListener('click', clearCalculator);
 operatorButtons.forEach((button) =>
   button.addEventListener('click', () => {
     operator = button.dataset.op;
-    if(operator) {
-      
-    } else {
-      
-    }
   }),
 );
