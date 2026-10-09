@@ -7,6 +7,7 @@ const equalsButton = document.querySelector('.equals');
 let firstNumber = '';
 let operator = '';
 let secondNumber = '';
+let resultShown = false;
 
 function addNumbers(num1, num2) {
   return num1 + num2;
@@ -42,6 +43,10 @@ function operate(op, num1, num2) {
 
 digitButtons.forEach((button) =>
   button.addEventListener('click', () => {
+    if (resultShown) {
+      firstNumber = '';
+      resultShown = false;
+    }
     if (operator) {
       secondNumber += button.textContent;
       display.textContent = secondNumber;
@@ -57,6 +62,7 @@ function clearCalculator() {
   secondNumber = '';
   operator = '';
   display.textContent = '0';
+  resultShown = false;
 }
 
 clearButton.addEventListener('click', clearCalculator);
@@ -67,6 +73,7 @@ operatorButtons.forEach((button) =>
       calculate();
     }
     operator = button.dataset.op;
+    resultShown = false;
   }),
 );
 
@@ -75,6 +82,8 @@ function calculate() {
   display.textContent = result;
   firstNumber = result;
   secondNumber = '';
+  operator = '';
+  resultShown = true;
 }
 
 equalsButton.addEventListener('click', calculate);
