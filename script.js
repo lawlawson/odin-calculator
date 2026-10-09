@@ -2,7 +2,7 @@ const display = document.querySelector('.display');
 const digitButtons = document.querySelectorAll('.digit');
 const clearButton = document.querySelector('.clear');
 const operatorButtons = document.querySelectorAll('.operator');
-const equalsButon = document.querySelector('.equals');
+const equalsButton = document.querySelector('.equals');
 
 let firstNumber = '';
 let operator = '';
@@ -63,13 +63,18 @@ clearButton.addEventListener('click', clearCalculator);
 
 operatorButtons.forEach((button) =>
   button.addEventListener('click', () => {
+    if (secondNumber) {
+      calculate();
+    }
     operator = button.dataset.op;
   }),
 );
 
 function calculate() {
-  let result = operate(operator, firstNumber, secondNumber);
+  const result = operate(operator, firstNumber, secondNumber);
   display.textContent = result;
+  firstNumber = result;
+  secondNumber = '';
 }
 
-equalsButon.addEventListener('click', calculate);
+equalsButton.addEventListener('click', calculate);
