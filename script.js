@@ -78,6 +78,9 @@ operatorButtons.forEach((button) =>
 );
 
 function calculate() {
+  if (firstNumber === '' || secondNumber === '' || operator === '') {
+    return;
+  }
   const result = operate(operator, firstNumber, secondNumber);
   display.textContent = result;
   firstNumber = result;
