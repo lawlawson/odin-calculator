@@ -81,6 +81,13 @@ function calculate() {
   if (firstNumber === '' || secondNumber === '' || operator === '') {
     return;
   }
+
+  if (operator === '/' && Number(secondNumber) === 0) {
+    clearCalculator();
+    display.textContent = 'Not allowed';
+    return;
+  }
+
   const result = operate(operator, firstNumber, secondNumber);
   display.textContent = result;
   firstNumber = result;
