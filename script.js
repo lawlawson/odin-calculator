@@ -41,6 +41,10 @@ function operate(op, num1, num2) {
   }
 }
 
+function roundResult(num) {
+  return Math.round(num);
+}
+
 digitButtons.forEach((button) =>
   button.addEventListener('click', () => {
     if (resultShown) {
@@ -88,7 +92,7 @@ function calculate() {
     return;
   }
 
-  const result = operate(operator, firstNumber, secondNumber);
+  const result = roundResult(operate(operator, firstNumber, secondNumber));
   display.textContent = result;
   firstNumber = result;
   secondNumber = '';
