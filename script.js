@@ -92,8 +92,8 @@ function calculate() {
     return;
   }
 
-  const result = operate(operator, firstNumber, secondNumber);
-  display.textContent = roundResult(result);
+  const result = roundResult(operate(operator, firstNumber, secondNumber));
+  display.textContent = result;
   firstNumber = result;
   secondNumber = '';
   operator = '';
