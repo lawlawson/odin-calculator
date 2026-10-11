@@ -42,7 +42,7 @@ function operate(op, num1, num2) {
 }
 
 function roundResult(num) {
-  return Math.round(num);
+  return Math.round(num * 1000) / 1000;
 }
 
 digitButtons.forEach((button) =>
@@ -92,8 +92,8 @@ function calculate() {
     return;
   }
 
-  const result = roundResult(operate(operator, firstNumber, secondNumber));
-  display.textContent = result;
+  const result = operate(operator, firstNumber, secondNumber);
+  display.textContent = roundResult(result);
   firstNumber = result;
   secondNumber = '';
   operator = '';
