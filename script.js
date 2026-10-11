@@ -76,6 +76,9 @@ operatorButtons.forEach((button) =>
     if (secondNumber) {
       calculate();
     }
+    if (firstNumber === '') {
+      return;
+    }
     operator = button.dataset.op;
     resultShown = false;
   }),
